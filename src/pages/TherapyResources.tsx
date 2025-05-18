@@ -11,6 +11,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import PageContainer from '@/components/layout/PageContainer';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Label } from '@/components/ui/label';
 
 const TherapyResources = () => {
   return (
@@ -39,34 +47,42 @@ const TherapyResources = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="specialty" className="text-sm font-medium">
-                    Specialty
-                  </label>
-                  <select id="specialty" className="w-full p-2 border rounded-md">
-                    <option value="">All Specialties</option>
-                    <option value="anxiety">Anxiety</option>
-                    <option value="depression">Depression</option>
-                    <option value="trauma">Trauma & PTSD</option>
-                    <option value="addiction">Addiction</option>
-                    <option value="grief">Grief</option>
-                    <option value="relationships">Relationships</option>
-                  </select>
+                  <Label htmlFor="specialty">Specialty</Label>
+                  <Select>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select specialty" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Specialties</SelectItem>
+                      <SelectItem value="anxiety">Anxiety</SelectItem>
+                      <SelectItem value="depression">Depression</SelectItem>
+                      <SelectItem value="trauma">Trauma & PTSD</SelectItem>
+                      <SelectItem value="addiction">Addiction</SelectItem>
+                      <SelectItem value="grief">Grief</SelectItem>
+                      <SelectItem value="relationships">Relationships</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="format" className="text-sm font-medium">
-                    Session Format
-                  </label>
-                  <select id="format" className="w-full p-2 border rounded-md">
-                    <option value="">Any Format</option>
-                    <option value="inperson">In-Person</option>
-                    <option value="virtual">Virtual</option>
-                    <option value="phone">Phone</option>
-                  </select>
+                  <Label htmlFor="format">Session Format</Label>
+                  <Select>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Choose format" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="any">Any Format</SelectItem>
+                      <SelectItem value="inperson">In-Person</SelectItem>
+                      <SelectItem value="virtual">Virtual</SelectItem>
+                      <SelectItem value="phone">Phone</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
-              <Button className="mt-6 w-full">Find Therapists</Button>
+              <Button className="mt-6 w-full" size="lg">
+                Find Therapists
+              </Button>
             </CardContent>
           </Card>
 
